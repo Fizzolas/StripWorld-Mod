@@ -12,7 +12,6 @@ import net.minecraft.world.level.biome.BiomeSource;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
 import net.minecraft.world.level.dimension.DimensionType;
 import net.minecraft.world.level.dimension.LevelStem;
-import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 import net.minecraft.world.level.levelgen.presets.WorldPreset;
 
@@ -29,38 +28,47 @@ public class StripWorldPreset {
         HolderGetter<DimensionType> dimensions = context.lookup(Registries.DIMENSION_TYPE);
         HolderGetter<NoiseGeneratorSettings> noiseSettings = context.lookup(Registries.NOISE_SETTINGS);
 
-        // Create overworld dimension with strip generation
+        // Create overworld dimension with strip generation and void patches
         Holder<NoiseGeneratorSettings> overworldSettings = noiseSettings.getOrThrow(
             NoiseGeneratorSettings.OVERWORLD
         );
         BiomeSource overworldBiomes = StripBiomeSource.overworldSource(biomes);
-        StripChunkGenerator overworldGenerator = new StripChunkGenerator(overworldBiomes, overworldSettings);
+        StripChunkGeneratorWithVoid overworldGenerator = new StripChunkGeneratorWithVoid(
+            overworldBiomes, 
+            overworldSettings
+        );
 
         LevelStem overworldStem = new LevelStem(
             dimensions.getOrThrow(DimensionType.OVERWORLD_LOCATION),
             overworldGenerator
         );
 
-        // Create nether dimension with strip generation
+        // Create nether dimension with strip generation and void patches
         Holder<NoiseGeneratorSettings> netherSettings = noiseSettings.getOrThrow(
             NoiseGeneratorSettings.NETHER
         );
         BiomeSource netherBiomes = StripBiomeSource.netherSource(biomes);
-        StripChunkGenerator netherGenerator = new StripChunkGenerator(netherBiomes, netherSettings);
+        StripChunkGeneratorWithVoid netherGenerator = new StripChunkGeneratorWithVoid(
+            netherBiomes, 
+            netherSettings
+        );
 
         LevelStem netherStem = new LevelStem(
             dimensions.getOrThrow(DimensionType.NETHER_LOCATION),
             netherGenerator
         );
 
-        // Create end dimension with strip generation
+        // Create end dimension with strip generation and void patches
         Holder<NoiseGeneratorSettings> endSettings = noiseSettings.getOrThrow(
             NoiseGeneratorSettings.END
         );
         BiomeSource endBiomes = MultiNoiseBiomeSource.Preset.END.biomeSource(biomes);
-        StripChunkGenerator endGenerator = new StripChunkGenerator(endBiomes, endSettings);
+        StripChunkGeneratorWithVoid endGenerator = new StripChunkGeneratorWithVoid(
+            endBiomes, 
+            endSettings
+        );
 
-        LevelStem endStem = new LevelStem(
+        LevelStem endStem = new LevelSlem(
             dimensions.getOrThrow(DimensionType.END_LOCATION),
             endGenerator
         );

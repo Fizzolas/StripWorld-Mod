@@ -1,0 +1,32 @@
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Visual Studio Code
+.vscode/
+
+# Gradle
+.gradle/
+build/
+
+# Minecraft
+run/
+logs/
+
+# MacOS
+.DS_Store
+
+# Other
+*.log
+*.swp
+*.bak
+*~

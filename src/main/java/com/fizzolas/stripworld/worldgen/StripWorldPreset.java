@@ -68,7 +68,7 @@ public class StripWorldPreset {
             endSettings
         );
 
-        LevelStem endStem = new LevelSlem(
+        LevelStem endStem = new LevelStem(
             dimensions.getOrThrow(DimensionType.END_LOCATION),
             endGenerator
         );

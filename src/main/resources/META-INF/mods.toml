@@ -9,6 +9,9 @@ displayName="${mod_name}"
 authors="${mod_authors}"
 description='''${mod_description}'''
 
+[[mixins]]
+config = "mixins.stripworld.json"
+
 [[dependencies.stripworld]]
     modId="forge"
     mandatory=true

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.fizzolas.stripworld.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "stripworld.refmap.json",
+  "mixins": [
+    "StructurePlacementMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

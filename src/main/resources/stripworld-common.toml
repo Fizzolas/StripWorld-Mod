@@ -1,0 +1,34 @@
+# StripWorld Mod Configuration
+
+[worldgen]
+    # Width of the world strips in chunks (default: 2)
+    # Range: 1-16
+    stripWidthChunks = 2
+    
+    # Whether to generate void patches beneath bedrock
+    generateVoidPatches = true
+    
+    # Minimum radius of void patches in blocks
+    # Range: 3-32
+    voidPatchMinRadius = 5
+    
+    # Maximum radius of void patches in blocks
+    # Range: 3-64
+    voidPatchMaxRadius = 20
+    
+    # Frequency of void patches (higher = more patches)
+    # Range: 0.0-1.0
+    voidPatchFrequency = 0.15
+    
+    # Enable strip generation in the Nether
+    enableNetherStrips = true
+    
+    # Enable strip generation in the End
+    enableEndStrips = true
+
+[compatibility]
+    # Allow other mods to modify world generation
+    allowModCompat = true
+    
+    # Preserve vanilla structure spacing
+    preserveStructureSpacing = true
